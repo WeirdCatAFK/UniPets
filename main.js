@@ -9,7 +9,8 @@ import users from "./routes/users.js";
 import owners from "./routes/owners.js";
 import pets from "./routes/pets.js";
 import consultations from "./routes/consultations.js";
-
+import products from './routes/products.js';
+import sales from './routes/sales.js';
 const app = express();
 
 const config = {
@@ -60,6 +61,9 @@ app.get('/consultations/files/:filename', (req, res) => {
   const filePath = path.join(__dirname, 'data/consultation_files', req.params.filename);
   res.sendFile(filePath);
 });
+
+// Productos y Ventas
+
 
 
 

@@ -12,7 +12,7 @@ Rutas para edición de los usuarios, de manera personal o con permiso de admin
 
 ## [Rutas de dueños](docs/owners.md "Documentación de las rutas de dueños")
 
-Rutas para manejar las operaciones entre dueños 
+Rutas para manejar las operaciones entre dueños
 
 ## [Rutas de mascotas](docs/pets.md "Documentación de las rutas de dueños")
 
@@ -21,3 +21,13 @@ Rutas para manejar las operaciones entre mascotas
 ## [Rutas de citas](docs/appointments.md)
 
 Rutas para manejar las citas
+
+## [Rutas de productos](docs/products.md)
+
+Rutas para manejar los productos
+
+## [Rutas de ventas](docs/sales.md)
+
+Rutas para manejar las ventas
+
+## [Rutas de notificaciones](docs/notifs.md)
