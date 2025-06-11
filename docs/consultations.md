@@ -1,5 +1,10 @@
 ## Endpoints
 
+
+## Base URL
+
+`{api_url}:50500/consultations`
+
 ### 1. Registrar nueva consulta
 
 **URL**: `/`

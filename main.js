@@ -11,6 +11,8 @@ import pets from "./routes/pets.js";
 import consultations from "./routes/consultations.js";
 import products from './routes/products.js';
 import sales from './routes/sales.js';
+import notifs from './routes/notifs.js';
+import appointments from './routes/appointments.js';
 const app = express();
 
 const config = {
@@ -63,10 +65,16 @@ app.get('/consultations/files/:filename', (req, res) => {
 });
 
 // Productos y Ventas
+app.use("/products", authenticateToken, products)
 
+app.use("/sales", authenticateToken, sales)
 
+// Notificaciones
+app.use("/notifs", authenticateToken, notifs)
 
+// appointments
 
+app.use("/appointments",authenticateToken,appointments)
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
