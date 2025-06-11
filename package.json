@@ -1,0 +1,19 @@
+{
+  "name": "unipets",
+  "version": "0.0.0",
+  "description": "An api for uaq's veterinary services",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "node --watch main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
