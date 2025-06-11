@@ -31,3 +31,9 @@ Rutas para manejar los productos
 Rutas para manejar las ventas
 
 ## [Rutas de notificaciones](docs/notifs.md)
+
+Rutas para enviar y recibir notificaciones
+
+## [Rutas de citas](docs/appointments.md)
+
+Rutas para agendar citas
