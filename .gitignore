@@ -133,7 +133,7 @@ dist
 .flashback/*
 
 #current data that it's created on demand
-data
+data/
 
 #For development purposes
 .testFiles/

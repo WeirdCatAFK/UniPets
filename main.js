@@ -1,20 +1,25 @@
 import morgan from "morgan";
 import express from "express";
 import cors from "./config/corsPolicy.js";
+import db from "./config/db.js";
+import auth from './routes/auth.js';
+import { authenticateToken } from "./middleware/auth.js";
+
 const app = express();
 
 const config = {
   host: "localhost",
   port: 50500,
-  env: process.env.NODE_ENV || "development"
+  env: process.env.NODE_ENV || "development",
 };
 
-
+await db.initialize();
 
 // Middleware
 app.use(cors);
 app.use(morgan("dev"));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
@@ -24,30 +29,38 @@ app.get("/health", (req, res) => {
 
 // Default response
 app.get("/", (req, res) => {
-  res.status(200).json({ 
+  res.status(200).json({
     message: "Welcome to the UniPets API",
-    documentation: `http://${config.host}:${config.port}/docs` 
+    documentation: `http://${config.host}:${config.port}/docs`,
   });
 });
+
+// Middleware de autenticación [Las rutas después de esta requieren autenticación con el web token]
+app.use("/auth", auth);
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ 
-    code: 500, 
+  res.status(500).json({
+    code: 500,
     message: "Internal Server Error",
-    error: config.env === "development" ? err.message : undefined
+    error: config.env === "development" ? err.message : undefined,
   });
 });
 
 // No route found handler
 app.use((req, res) => {
-  res.status(404).json({ code: 404, message: "Endpoint not found, try again :/" });
+  res
+    .status(404)
+    .json({ code: 404, message: "Endpoint not found, try again :/" });
 });
 
 // Start server
 const server = app.listen(config.port, config.host, () => {
-  console.log(`Server running in ${config.env} mode at http://${config.host}:${config.port}`);
+  console.log(
+    `Server running in ${config.env} mode at http://${config.host}:${config.port}`
+  );
 });
 
 // Handle unhandled promise rejections
