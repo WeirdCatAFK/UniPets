@@ -1,4 +1,3 @@
-
 # Descripción
 
 Este documento describe los endpoints disponibles para el manejo de autenticación y registro de usuarios en el sistema UniPets.
@@ -130,9 +129,3 @@ Los posibles valores para `rol_id` son:
 - 1: Administrador
 - 2: Empleado
 - 3: Cliente
-
-## Consideraciones de seguridad
-
-- Las contraseñas se almacenan en la base de datos usando hash bcrypt
-- Todos los endpoints de autenticación deben usarse sobre HTTPS en producción
-- Los tokens JWT contienen información del usuario pero están firmados para prevenir modificaciones

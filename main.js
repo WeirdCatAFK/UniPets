@@ -2,8 +2,11 @@ import morgan from "morgan";
 import express from "express";
 import cors from "./config/corsPolicy.js";
 import db from "./config/db.js";
-import auth from './routes/auth.js';
 import { authenticateToken } from "./middleware/auth.js";
+//routes
+import auth from "./routes/auth.js";
+import users from "./routes/users.js";
+
 
 const app = express();
 
@@ -38,6 +41,8 @@ app.get("/", (req, res) => {
 // Middleware de autenticación [Las rutas después de esta requieren autenticación con el web token]
 app.use("/auth", auth);
 
+// Datos del usuario
+app.use("/users", authenticateToken, users);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

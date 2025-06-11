@@ -5,3 +5,7 @@ Para comenzar a usar la API, primero hay que entender como funciona la autentica
 ## [Rutas de autenticación](docs/auth.md "Documentación de las rutas de autenticación")
 
 El resto de rutas necesitan el token de autenticación como header, este es conseguible mediante login
+
+## [Rutas de usuario](docs/users.md "Documentación de las rutas de autenticación")
+
+Rutas para edición de los usuarios, de manera personal o con permiso de admin
