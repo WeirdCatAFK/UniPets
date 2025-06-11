@@ -6,7 +6,7 @@ import { authenticateToken } from "./middleware/auth.js";
 //routes
 import auth from "./routes/auth.js";
 import users from "./routes/users.js";
-
+import owners from './routes/owners.js';
 
 const app = express();
 
@@ -43,6 +43,9 @@ app.use("/auth", auth);
 
 // Datos del usuario
 app.use("/users", authenticateToken, users);
+
+// Dueños
+app.use("/owners", authenticateToken, owners)
 
 // Error handling middleware
 app.use((err, req, res, next) => {

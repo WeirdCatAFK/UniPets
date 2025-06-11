@@ -6,6 +6,10 @@ Para comenzar a usar la API, primero hay que entender como funciona la autentica
 
 El resto de rutas necesitan el token de autenticación como header, este es conseguible mediante login
 
-## [Rutas de usuario](docs/users.md "Documentación de las rutas de autenticación")
+## [Rutas de usuario](docs/users.md "Documentación de las rutas de manejo de usuarios")
 
 Rutas para edición de los usuarios, de manera personal o con permiso de admin
+
+## [Rutas de dueños](docs/owners.md "Documentación de las rutas de dueños")
+
+Rutas para manejar las relaciones entre dueños y mascotas
