@@ -8,6 +8,7 @@ import auth from "./routes/auth.js";
 import users from "./routes/users.js";
 import owners from "./routes/owners.js";
 import pets from "./routes/pets.js";
+import consultations from "./routes/consultations.js";
 
 const app = express();
 
@@ -50,6 +51,17 @@ app.use("/owners", authenticateToken, owners);
 
 // Mascotas
 app.use("/pets", authenticateToken, pets);
+
+// Consultas
+
+app.use("/consultations", authenticateToken, consultations)
+
+app.get('/consultations/files/:filename', (req, res) => {
+  const filePath = path.join(__dirname, 'data/consultation_files', req.params.filename);
+  res.sendFile(filePath);
+});
+
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {

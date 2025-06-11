@@ -129,3 +129,57 @@ Los posibles valores para `rol_id` son:
 - 1: Administrador
 - 2: Empleado
 - 3: Cliente
+
+## Endpoints de Recuperación de contraseña
+
+### `POST /auth/forgot-password`
+
+Genera un token de recuperación válido por 15 minutos.
+
+#### Body:
+
+```json
+{
+  "email": "daniel@unipets.com"
+}
+
+```
+
+#### Response:
+
+```json
+{
+  "message": "Token de recuperación generado.",
+  "resetToken": "<JWT>"
+}
+
+```
+
+> ✅ _En un sistema real, este token se enviaría por correo, no directamente al cliente._
+
+---
+
+### `POST /auth/reset-password`
+
+Permite cambiar la contraseña usando el token de recuperación.
+
+#### Body:
+
+```json
+{
+  "token": "<JWT de /forgot-password>",
+  "newPassword": "nuevaClaveSegura"
+}
+
+```
+
+#### Response:
+
+```json
+{
+  "message": "Contraseña actualizada exitosamente."
+}
+
+```
+
+---
